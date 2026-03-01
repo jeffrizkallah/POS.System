@@ -11,11 +11,13 @@ import { useCart } from "@/hooks/useCart";
 interface ProductGridProps {
   products: Product[];
   activeCategory: ProductCategory;
+  loading?: boolean;
 }
 
 export default function ProductGrid({
   products,
   activeCategory,
+  loading = false,
 }: ProductGridProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const { addItem } = useCart();
@@ -78,37 +80,56 @@ export default function ProductGrid({
 
       {/* Product Grid */}
       <div className="flex-1 overflow-y-auto px-4 pb-4">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCategory + searchQuery}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3"
-          >
-            {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onAddToCart={addItem}
-              />
+        {loading ? (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <div
+                key={i}
+                className="rounded-xl bg-white border border-border overflow-hidden animate-pulse"
+              >
+                <div className="aspect-square bg-muted" />
+                <div className="p-3 space-y-2">
+                  <div className="h-3 bg-muted rounded w-3/4" />
+                  <div className="h-3 bg-muted rounded w-1/2" />
+                </div>
+              </div>
             ))}
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ) : (
+          <>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeCategory + searchQuery}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3"
+              >
+                {filteredProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    onAddToCart={addItem}
+                  />
+                ))}
+              </motion.div>
+            </AnimatePresence>
 
-        {filteredProducts.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex flex-col items-center justify-center py-20 text-muted-foreground"
-          >
-            <Search className="w-12 h-12 mb-3 opacity-30" />
-            <p className="text-sm font-medium">No products found</p>
-            <p className="text-xs mt-1">
-              Try a different search or category
-            </p>
-          </motion.div>
+            {filteredProducts.length === 0 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="flex flex-col items-center justify-center py-20 text-muted-foreground"
+              >
+                <Search className="w-12 h-12 mb-3 opacity-30" />
+                <p className="text-sm font-medium">No products found</p>
+                <p className="text-xs mt-1">
+                  Try a different search or category
+                </p>
+              </motion.div>
+            )}
+          </>
         )}
       </div>
     </div>

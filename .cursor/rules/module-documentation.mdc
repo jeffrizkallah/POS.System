@@ -1,0 +1,41 @@
+---
+description: Documentation protocol — update /docs/modules/ after every module creation or modification
+alwaysApply: true
+---
+
+# Module Documentation Protocol
+
+After **every** module creation or modification, update the corresponding file in `/docs/modules/`.
+
+## Rules
+
+- **File naming:** `[module-name].md` (kebab-case, matching the source file name)
+- **One file per module:** each source file or logical feature gets its own `.md`
+- **Update on every change:** if you modify a module, update its doc in the same task before closing
+
+## Required Content Schema
+
+Each `/docs/modules/[module-name].md` must contain these sections:
+
+```
+## Purpose
+What this module does and why it exists.
+
+## Exported Functions / Components
+List each export with its signature and a one-line description.
+
+## Dependencies
+Internal (`@/`) and external (`npm`) imports this module relies on.
+
+## State & Side Effects
+Any React state, context, reducers, or external side effects (DB writes, fetch calls).
+
+## How It Works
+Step-by-step explanation of the module's internal logic flow.
+```
+
+## Verification
+
+Before concluding any task that touches source files, confirm:
+- The corresponding `/docs/modules/[module-name].md` exists and reflects the latest changes
+- The doc matches the current state of the file (not a previous version)
