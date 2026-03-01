@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+This file is the "door" to your Neon database. Any time the app needs to talk to the database, it uses this file to get a connection. The smart part is it only opens the door once — after the first time it connects, it reuses the same connection for all future requests instead of opening a new one every time (which would be slow). If your `DATABASE_URL` is missing from `.env.local`, this file will throw a clear error message telling you exactly what's wrong.
+
+---
+
 ## Purpose
 
 Provides a lazily-initialised, singleton Drizzle ORM connection to the Neon serverless PostgreSQL database. Prevents multiple connection instances from being created during the Next.js dev server's hot-reload cycles.

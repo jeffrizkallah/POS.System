@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+This is the main screen of the app — the one that loads when you open the POS in a browser. It's in charge of putting everything together: the top bar, the category sidebar on the left, the product grid in the middle, and the cart on the right. When the page first loads, it goes and fetches all the products from the database and passes them to the product grid. While it's loading, the grid shows placeholder cards. It also keeps track of which category the cashier is currently looking at.
+
+---
+
 ## Purpose
 
 The root Next.js page (`/`) and entry point for the entire QuickPOS application. Fetches products from the live database API on mount, manages the active category filter, and composes all major layout sections (header, sidebar, product grid, cart, and modal dialogs).

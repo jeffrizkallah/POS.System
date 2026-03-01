@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+When the POS app loads, it needs to show all the products on screen. This file is the "middleman" between the app and the database. The app asks "give me all products" (or "give me only Hot Drinks"), this file goes to the Neon database, grabs the matching items, and sends them back. If anything goes wrong, it tells the app there was an error instead of crashing.
+
+---
+
 ## Purpose
 
 Next.js Route Handler that serves product data from the Neon PostgreSQL database. Replaces the previous mock-data implementation so the POS UI always reflects the live product catalogue.

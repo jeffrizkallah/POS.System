@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+This file is the blueprint for your database. It defines exactly what tables exist and what columns each table has — like designing the columns in a spreadsheet before you start filling it in. There are 4 tables: one for categories (like "Hot Drinks"), one for products (like "Espresso — AED 12"), one for sale transactions (the receipt header), and one for the individual items within each sale. Drizzle reads this file to know how to talk to your database in a type-safe way.
+
+---
+
 ## Purpose
 
 Defines the full Drizzle ORM schema for the QuickPOS Neon PostgreSQL database. This is the single source of truth for all table structures; Drizzle Kit reads this file to generate and apply migrations.

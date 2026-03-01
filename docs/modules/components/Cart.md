@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+This is the panel on the right side of the screen that shows what's in the current order. It lists every item the cashier has added, shows the subtotal, the 5% UAE VAT, and the final total. There's also a "Complete Sale" button at the bottom that opens the checkout window. If the cart is empty, it shows a helpful message telling the cashier to tap a product to start. All the numbers animate smoothly when they change.
+
+---
+
 ## Purpose
 
 The right-side panel of the POS layout. Displays the current order's line items, running totals (subtotal, 5% UAE VAT, grand total), and the "Complete Sale" checkout button. Reads entirely from `useCart()` context — it holds no local state of its own.

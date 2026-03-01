@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+This is the big grid of product cards in the middle of the screen. It shows all the menu items the cashier can tap to add to the order. There's a search bar at the top so you can quickly find something by name, SKU, or category. When you switch categories using the sidebar, the grid smoothly animates to the new set of items. While the products are loading from the database, it shows grey placeholder cards so the screen doesn't look empty or broken.
+
+---
+
 ## Purpose
 
 The center panel of the POS layout. Displays a filterable, searchable grid of products. Accepts a `loading` prop to show skeleton placeholder cards while the initial database fetch is in progress.

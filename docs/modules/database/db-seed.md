@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+When you first set up the database, it's completely empty — no products, no categories, nothing. This script is the "first-time setup" tool that fills it up with all 36 menu items and 6 categories so the POS has something to show. You run it once from the terminal with `npm run db:seed`. It's smart enough that if you accidentally run it again, it won't create duplicates — it just skips anything that already exists.
+
+---
+
 ## Purpose
 
 One-time CLI script that populates the Neon database with the initial 6 categories and 36 F&B products. Safe to run multiple times — uses `onConflictDoNothing` to avoid duplicate inserts.

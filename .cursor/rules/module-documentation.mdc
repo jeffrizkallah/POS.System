@@ -7,6 +7,18 @@ alwaysApply: true
 
 After **every** module creation or modification, update the corresponding file in `/docs/modules/`.
 
+## Folder Structure
+
+Place each doc in the correct subfolder:
+
+| Subfolder | What goes here |
+|-----------|---------------|
+| `docs/modules/api/` | Next.js API route handlers (`src/app/api/**`) |
+| `docs/modules/database/` | DB connection, schema, seed (`src/lib/db/**`) |
+| `docs/modules/components/` | React UI components (`src/components/**`) |
+| `docs/modules/hooks/` | Custom hooks and context providers (`src/hooks/**`) |
+| `docs/modules/pages/` | Next.js page files (`src/app/**/page.tsx`) |
+
 ## Rules
 
 - **File naming:** `[module-name].md` (kebab-case, matching the source file name)
@@ -15,11 +27,15 @@ After **every** module creation or modification, update the corresponding file i
 
 ## Required Content Schema
 
-Each `/docs/modules/[module-name].md` must contain these sections:
+Each doc must contain these sections **in this order**:
 
 ```
+## Plain English
+A jargon-free, 2–4 sentence explanation that anyone (non-developer) can understand.
+Describe what the module does, why it exists, and when it runs — no technical terms.
+
 ## Purpose
-What this module does and why it exists.
+Technical summary of what the module does and why it exists.
 
 ## Exported Functions / Components
 List each export with its signature and a one-line description.
@@ -37,5 +53,6 @@ Step-by-step explanation of the module's internal logic flow.
 ## Verification
 
 Before concluding any task that touches source files, confirm:
-- The corresponding `/docs/modules/[module-name].md` exists and reflects the latest changes
-- The doc matches the current state of the file (not a previous version)
+- The corresponding doc exists in the correct subfolder
+- The **Plain English** section is present and written in simple, clear language
+- The doc reflects the current state of the file (not a previous version)

@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+When a cashier finishes a sale and hits "Complete Sale", this file is what saves that transaction to the database so it's never lost. It records the full receipt — what was bought, how much it cost, and how the customer paid. It can also pull up past sales if you ever need to look back at the history.
+
+---
+
 ## Purpose
 
 Next.js Route Handler for creating and retrieving sales records. Persists completed POS transactions (header + line items) to the Neon PostgreSQL database and allows querying recent sales history.

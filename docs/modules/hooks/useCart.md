@@ -5,6 +5,12 @@
 
 ---
 
+## Plain English
+
+Think of this as the "brain" of the shopping cart. It keeps track of everything in the current order — which items were added, how many of each, and what the totals are. Any component in the app (the product grid, the cart panel, the checkout window) can ask this hook for the cart data or tell it to do something like "add this item" or "clear everything". When the cashier hits Complete Sale, this hook also sends the sale data to the database so it gets saved permanently.
+
+---
+
 ## Purpose
 
 Global cart state manager for the POS system. Implements a React Context + `useReducer` pattern to manage the full order lifecycle: adding/removing products, checkout, payment, sale persistence to the database, and receipt display.
